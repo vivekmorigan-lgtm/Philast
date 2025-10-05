@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moon-Light — Parallax Scrolling (Responsive)</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/6892feb0b7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="Home.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#" class="logo">Philast</a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+      </button>
+      <nav id="nav">
+        <ul>
+          <li>
+            <a class="active" href="#home">
+              <i class="fa-solid fa-house"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#"> <i class="fa-solid fa-terminal"></i> </a>
+          </li>
+          <li>
+            <a href="#contact">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" aria-label="Parallax hero">
+      <img
+        src="stars.png"
+        id="stars"
+        class="layer small"
+        alt="Starry sky"
+        loading="lazy"
+      />
+      <img
+        src="moon.png"
+        id="moon"
+        class="layer"
+        alt="Moon"
+        loading="lazy"
+        style="
+          width: 500px;
+          height: 500px;
+          left: 10%;
+          top: 10%;
+          transform: translate(-50%, -50%);
+        "
+      />
+      <img
+        src="mountains_behind.png"
+        id="mountains_behind"
+        class="layer"
+        alt="Distant mountains"
+        loading="lazy"
+      />
+      <h2 id="text">Philast</h2>
+      <a href="#home" id="btn">Explore</a>
+      <img
+        src="mountains_front.png"
+        id="mountains_front"
+        class="layer"
+        alt="Foreground mountains"
+        loading="lazy"
+      />
+    </section>
+
+    <section class="home fade-in" id="home" aria-label="Home">
+      <div class="home-container">
+        <div class="home-image">
+          <img src="Main.jpg" alt="Profile" />
+        </div>
+        <div class="home-text">
+          <h1>Hi, It's <span class="highlight">Vivek</span></h1>
+          <h3 class="typing-wrap">
+            I'm a <span id="typed-text"></span><span class="cursor">|</span>
+          </h3>
+          <p>
+            Check out Philast to see latest projects and get free source code
+            for your own use. Contact me for custom project or collaborations.
+          </p>
+          <div class="social-icons">
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a href="#" aria-label="GitHub"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a href="#" aria-label="Twitter"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec fade-in-up" id="why">
+      <div class="container">
+        <h2>Why choose us?</h2>
+        <div class="boxes">
+          <div class="slider" id="why-slider">
+            <div class="box">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+              <h2>Free codes</h2>
+              <p>Get premium quality code and templates at a free price.</p>
+            </div>
+            <div class="box">
+              <i class="fa-solid fa-download"></i>
+              <h2>Free download</h2>
+              <p>
+                Access and download source code instantly for free. No
+                subscriptions or paywalls.
+              </p>
+            </div>
+            <div class="box">
+              <i class="fa-solid fa-file-arrow-down"></i>
+              <h2>All code in one file</h2>
+              <p>
+                Every project is neatly organized in a single file for easy use
+                and integration.
+              </p>
+            </div>
+            <div class="box">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <h2>Easy Access</h2>
+              <p>
+                Get all code without even logging in. Fast, secure, and
+                hassle-free access.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="wrap">
+        <div class="col">
+          <h4>Contact</h4>
+          <p>Email: hello@philast.example</p>
+          <p>Location: India</p>
+        </div>
+        <div class="col">
+          <h4>Follow</h4>
+          <div class="social">
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a href="#" aria-label="GitHub"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a href="#" aria-label="Twitter"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        © <span id="year"></span> Philast — Built with
+        <i class="fa-solid fa-heart" style="color: #ff0000"></i> from India. All
+        rights reserved.
+      </div>
+    </footer>
+    <script src="Home.js"></script>
+  </body>
+</html>
