@@ -19,14 +19,14 @@
 
   <body>
     <header>
-      <a href="#" class="logo">Philast</a>
+      <a href="https://philastcodes.netlify.app" class="logo">Philast</a>
       <button class="menu-toggle" aria-label="Toggle menu">
         <span></span>
       </button>
       <nav id="nav">
         <ul>
           <li>
-            <a class="active" href="#home">
+            <a class="active" href="https://philastcodes.netlify.app">
               <i class="fa-solid fa-house"></i>
             </a>
           </li>
@@ -34,7 +34,7 @@
             <a href="#"> <i class="fa-solid fa-terminal"></i> </a>
           </li>
           <li>
-            <a href="#contact">
+            <a href="#">
               <i class="fa-solid fa-envelope"></i>
             </a>
           </li>
@@ -72,7 +72,7 @@
         loading="lazy"
       />
       <h2 id="text">Philast</h2>
-      <a href="#home" id="btn">Explore</a>
+      <a href="#home" id="btn">Explore More</a>
       <img
         src="mountains_front.png"
         id="mountains_front"
@@ -97,9 +97,6 @@
             for your own use. Contact me for custom project or collaborations.
           </p>
           <div class="social-icons">
-            <a href="#" aria-label="LinkedIn"
-              ><i class="fa-brands fa-linkedin"></i
-            ></a>
             <a href="#" aria-label="GitHub"
               ><i class="fa-brands fa-github"></i
             ></a>
@@ -153,19 +150,103 @@
       </div>
     </section>
 
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq">
+          <div class="faq-toggle">
+            <span class="faq-icon"><h5>What is Philast?</h5></span>
+          </div>
+          <div class="faq-content">
+            <h3>What is Philast?</h3>
+            <p>
+              Philast is a creative hub providing free templates and
+              design-to-code resources to developers and designers.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <div class="faq-toggle">
+            <span class="faq-icon"
+              ><h5>Can I use these templates for my projects?</h5></span
+            >
+          </div>
+          <div class="faq-content">
+            <h3>Can I use these templates for my projects?</h3>
+            <p>
+              Yes, all Philast templates are free to use and customize for
+              personal or professional projects.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <div class="faq-toggle">
+            <span class="faq-icon"
+              ><h5>How is it diffrent from others?</h5></span
+            >
+          </div>
+          <div class="faq-content">
+            <h3>How is it diffrent from others?</h3>
+            <p>
+              Philast focuses on providing high-quality, easy-to-use
+              templates<br />
+              that are free to download and use without any restrictions and
+              you<br />
+              will find these in youtube videos asking to comment them to get
+              <br />code but we provide it for free.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="review-section">
+      <div class="review-container glass">
+        <h2>How was your experience?</h2>
+        <div class="emoji-row">
+          <div class="emoji sad" data-type="bad">
+            <i class="fa-solid fa-face-frown"></i>
+          </div>
+
+          <div class="emoji smile" data-type="moderate">
+            <i class="fa-solid fa-face-smile"></i>
+          </div>
+
+          <div class="emoji happy" data-type="good">
+            <i class="fa-solid fa-face-laugh"></i>
+          </div>
+        </div>
+
+        <div class="feedback-box hidden">
+          <textarea placeholder="Tell us what went wrong..."></textarea>
+          <button class="submit-btn">Submit</button>
+        </div>
+
+        <div class="chart-container">
+          <svg class="semi-chart" viewBox="0 0 200 100">
+            <path class="arc bad" d="M10,100 A90,90 0 0,1 100,10" />
+            <path class="arc moderate" d="M100,10 A90,90 0 0,1 190,100" />
+            <path class="arc good" d="M100,10 A90,90 0 0,1 190,100" />
+          </svg>
+          <div class="tooltip hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
     <footer id="contact">
       <div class="wrap">
         <div class="col">
           <h4>Contact</h4>
-          <p>Email: hello@philast.example</p>
+          <p>Email: Vivek.Morigan@gmail.com</p>
           <p>Location: India</p>
         </div>
         <div class="col">
           <h4>Follow</h4>
           <div class="social">
-            <a href="#" aria-label="LinkedIn"
-              ><i class="fa-brands fa-linkedin"></i
-            ></a>
             <a href="#" aria-label="GitHub"
               ><i class="fa-brands fa-github"></i
             ></a>
@@ -180,8 +261,8 @@
       </div>
       <div class="copyright">
         © <span id="year"></span> Philast — Built with
-        <i class="fa-solid fa-heart" style="color: #ff0000"></i> from India. All
-        rights reserved.
+        <i class="fa-solid fa-heart fa-bounce" style="color: #ff0000"></i> from
+        India. All rights reserved.
       </div>
     </footer>
     <script src="Home.js"></script>
