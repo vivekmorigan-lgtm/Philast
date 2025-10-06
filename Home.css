@@ -498,7 +498,6 @@ footer p {
   text-align: center;
 }
 
-/* ANIMATIONS */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -520,7 +519,6 @@ footer p {
   animation: fadeIn 1s forwards;
 }
 
-/* RESPONSIVE BREAKPOINTS */
 @media (max-width: 768px) {
   header {
     padding: 12px 5%;
@@ -714,4 +712,270 @@ footer p {
 [data-animate].visible {
   opacity: 1;
   transform: none;
+}
+
+#faq {
+  text-align: center;
+  padding: 80px 20px;
+  background: #1c0522;
+}
+
+#faq h2 {
+  font-size: 2.2rem;
+  color: #5c3a99;
+  margin-bottom: 40px;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.faq {
+  position: relative;
+  width: 320px;
+  height: 45px;
+  border-radius: 12px;
+  background: #28143d;
+  color: white;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.faq.open {
+  width: 600px;
+  height: 200px;
+  border-radius: 20px;
+  justify-content: flex-start;
+  padding: 30px 40px;
+  background: linear-gradient(
+    135deg,
+    rgba(117, 151, 222, 0.15) 0%,
+    rgba(43, 16, 85, 0.2) 100%
+  );
+  border: 1.5px solid rgba(156, 187, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: #7597de;
+  box-shadow: 0 6px 30px rgba(43, 16, 85, 0.2);
+}
+.faq-icon {
+  font-size: 1rem;
+  transition: opacity 0.4s ease;
+}
+
+.faq.open .faq-icon {
+  opacity: 0;
+}
+
+.faq-content {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s ease;
+  text-align: left;
+  pointer-events: none;
+  width: 100%;
+  padding: 5px;
+}
+
+.faq.open .faq-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.faq-content h3 {
+  margin-bottom: 10px;
+  color: #8455dd;
+}
+
+.faq-content p {
+  font-size: 0.95rem;
+  color: #7597de;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .faq.open {
+    width: 90%;
+    height: auto;
+    min-height: 180px;
+    padding: 25px 25px;
+    border-radius: 16px;
+  }
+
+  .faq-content h3 {
+    font-size: 1rem;
+  }
+
+  .faq-content p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .faq {
+    width: 60px;
+    height: 60px;
+  }
+
+  .faq-icon {
+    font-size: 1.5rem;
+  }
+
+  .faq.open {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+#review-section {
+  background: #1c0522;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.glass {
+  background: rgba(92, 58, 153, 0.1);
+  border: 1px solid rgba(117, 151, 222, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(92, 58, 153, 0.3);
+  display: inline-block;
+}
+
+.emoji-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 3rem;
+  margin-top: 20px;
+}
+
+.emoji {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.emoji i {
+  color: #b197fc;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.emoji-row i:hover {
+  color: #fcce52;
+  transform: scale(1.1);
+}
+
+.emoji-row i:active {
+  transform: scale(0.95);
+}
+
+.feedback-box {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feedback-box textarea {
+  width: 80%;
+  max-width: 400px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  resize: none;
+}
+
+.feedback-box button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #5c3a99;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.feedback-box button:hover {
+  background: #7597de;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 🌀 Chart Styles */
+.chart-container {
+  position: relative;
+  width: 220px;
+  height: 120px;
+  margin: 40px auto 0;
+}
+
+.semi-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.arc {
+  fill: none;
+  stroke-width: 15;
+  transition: stroke-width 0.3s ease;
+  cursor: pointer;
+}
+
+.arc.bad {
+  stroke: #5c3a99;
+}
+
+.arc.good {
+  stroke: #7597de;
+}
+
+.arc:hover {
+  stroke-width: 20;
+}
+
+.tooltip {
+  position: absolute;
+  background: rgba(11, 6, 16, 0.8);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  pointer-events: none;
+  white-space: nowrap;
+  transform: translate(-50%, -120%);
+  transition: opacity 0.2s ease;
+}
+
+/* ✨ Happy Animation */
+@keyframes pop {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(0px, -2px) scale(1.03);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.emoji.happy.animate {
+  animation: pop 1.5s ease;
 }
