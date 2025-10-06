@@ -144,3 +144,41 @@ window.addEventListener("scroll", () => {
     if (rect.top < window.innerHeight - 100) el.classList.add("visible");
   });
 });
+const faqs = document.querySelectorAll(".faq");
+faqs.forEach((faq) => {
+  faq.addEventListener("click", () => {
+    faq.classList.toggle("open");
+  });
+});
+const sad = document.querySelector(".emoji.sad");
+const happy = document.querySelector(".emoji.happy");
+const feedbackBox = document.querySelector(".feedback-box");
+const tooltip = document.querySelector(".tooltip");
+const arcs = document.querySelectorAll(".arc");
+
+let votes = { good: 65, bad: 35, moderate: 50 };
+
+sad.addEventListener("click", () => {
+  feedbackBox.classList.remove("hidden");
+});
+
+happy.addEventListener("click", () => {
+  feedbackBox.classList.add("hidden");
+  happy.classList.add("animate");
+  setTimeout(() => happy.classList.remove("animate"), 600);
+  votes.good++;
+});
+
+arcs.forEach((arc) => {
+  arc.addEventListener("mousemove", (e) => {
+    const type = arc.classList.contains("good") ? "Good" : "Bad";
+    const count = votes[type.toLowerCase()];
+    tooltip.textContent = `${type}: ${count} votes`;
+    tooltip.style.left = e.offsetX + "px";
+    tooltip.style.top = e.offsetY + "px";
+    tooltip.classList.remove("hidden");
+  });
+  arc.addEventListener("mouseleave", () => {
+    tooltip.classList.add("hidden");
+  });
+});
