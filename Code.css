@@ -481,7 +481,7 @@ header {
   backdrop-filter: blur(8px);
   background: rgba(43, 16, 85, 0.3);
   height: 50px;
-  border-bottome: 1px solid silver;
+  border-bottom: 1px solid silver;
 }
 .logo {
   font-weight: 800;
