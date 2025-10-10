@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Gallery</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="Code.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="https://philastcodes.netlify.app" class="logo"
+        ><div class="logo"></div
+      ></a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+      </button>
+      <nav id="nav">
+        <ul>
+          <li>
+            <a href="https://philastcodes.netlify.app">
+              <i class="fa-solid fa-house"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="active">
+              <i class="fa-solid fa-terminal"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="search-filter">
+      <input type="text" id="search" placeholder="Search files..." />
+      <button class="filt-btn" id="filter">
+        <i class="fa-solid fa-sort"></i>
+      </button>
+      <div class="filters" id="filters">
+        <div class="filter-checkbox">
+          <input type="checkbox" id="filter-html" value="html" checked />
+          <label for="filter-html">HTML</label>
+        </div>
+        <div class="filter-checkbox">
+          <input type="checkbox" id="filter-css" value="css" checked />
+          <label for="filter-css">CSS</label>
+        </div>
+        <div class="filter-checkbox">
+          <input type="checkbox" id="filter-js" value="js" checked />
+          <label for="filter-js">JS</label>
+        </div>
+        <div class="filter-checkbox">
+          <input
+            type="checkbox"
+            id="filter-responsive"
+            value="responsive"
+            checked
+          />
+          <label for="filter-responsive">Responsive</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards" id="cards"></div>
+
+    <script src="Code.js"></script>
+  </body>
+</html>
