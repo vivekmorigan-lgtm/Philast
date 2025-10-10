@@ -1,3 +1,4 @@
+// elements used for parallax
 const stars = document.getElementById("stars");
 const moon = document.getElementById("moon");
 const mountainsBehind = document.getElementById("mountains_behind");
@@ -10,7 +11,7 @@ function getMultipliers() {
   if (w <= 480) {
     return {
       stars: 0.08,
-      moon: 0.6,
+      moon: 0.7,
       behind: 0.2,
       front: 0.05,
       textRight: 0,
@@ -20,7 +21,7 @@ function getMultipliers() {
   if (w <= 768) {
     return {
       stars: 0.12,
-      moon: 0.8,
+      moon: 0.9,
       behind: 0.3,
       front: 0.08,
       textRight: 0,
@@ -41,21 +42,33 @@ function onScroll() {
   const value = window.scrollY;
   const m = getMultipliers();
 
-  if (stars) stars.style.transform = `translateX(${value * m.stars}px)`;
-  if (moon) moon.style.transform = `translateY(${value * m.moon}px)`;
-  if (mountainsBehind)
-    mountainsBehind.style.transform = `translateY(${value * m.behind}px)`;
-  if (mountainsFront)
-    mountainsFront.style.transform = `translateY(${value * m.front}px)`;
-
-  if (text) {
-    if (window.innerWidth > 768) {
-      text.style.marginRight = value * m.textRight + "px";
-      text.style.marginTop = value * m.textTop + "px";
-    } else {
-      text.style.marginTop = value * m.textTop + "px";
-    }
+  if (stars) {
+    // translateX only (stars top is animated via CSS)
+    stars.style.transform = `translateX(${value * m.stars}px)`;
   }
+
+  if (moon) {
+    // preserve the initial centering translate(-50%,-50%) and add translateY for parallax
+    moon.style.transform = `translate(-60%, -60%) translateY(${
+      value * m.moon
+    }px)`;
+  }
+
+  if (mountainsBehind) {
+    mountainsBehind.style.transform = `translateY(${value * m.behind}px)`;
+  }
+  if (mountainsFront) {
+    mountainsFront.style.transform = `translateY(${value * m.front}px)`;
+  }
+
+  // if (text) {
+  //   if (window.innerWidth > 768) {
+  //     text.style.marginRight = value * m.textRight + "px";
+  //     text.style.marginTop = value * m.textTop + "px";
+  //   } else {
+  //     text.style.marginTop = value * m.textTop + "px";
+  //   }
+  // }
 
   if (btn) btn.style.marginTop = value * 0.3 + "px";
 }
@@ -71,25 +84,30 @@ window.addEventListener("scroll", function () {
   }
 });
 
+// nav toggle
 const menuToggle = document.querySelector(".menu-toggle");
 const nav = document.getElementById("nav");
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("open");
+  });
+}
+if (nav) {
+  nav.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") {
+      nav.classList.remove("open");
+    }
+  });
+}
 
-menuToggle.addEventListener("click", () => {
-  nav.classList.toggle("open");
-});
-
-nav.addEventListener("click", (e) => {
-  if (e.target.tagName === "A") {
-    nav.classList.remove("open");
-  }
-});
-
+// show current year
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// handle resize and initial onload
 window.addEventListener("resize", () => onScroll());
 document.addEventListener("DOMContentLoaded", () => onScroll());
 
-// Typing effect
+/* ===== typing effect (kept same) ===== */
 const words = ["Developer", "Designer", "Freelancer", "Blogger"];
 const typedText = document.getElementById("typed-text");
 let wordIndex = 0;
@@ -98,6 +116,7 @@ let typing = true;
 
 function typeEffect() {
   const currentWord = words[wordIndex];
+  if (!typedText) return;
   if (typing) {
     typedText.textContent = currentWord.substring(0, charIndex + 1);
     charIndex++;
@@ -118,67 +137,51 @@ function typeEffect() {
 }
 typeEffect();
 
-// Infinite slider
-const whySlider = document.getElementById("why-slider");
-if (whySlider) {
-  whySlider.innerHTML += whySlider.innerHTML;
-  let sliderWidth = whySlider.scrollWidth / 2;
-  let translateX = 0;
-  let speed = 0.5;
+/* ===== Infinite slider helper (works for multiple sliders) ===== */
+function initInfiniteSlider(sliderId, speed = 0.5) {
+  const slider = document.getElementById(sliderId);
+  if (!slider) return;
 
-  function animateWhySlider() {
-    translateX -= speed;
-    if (Math.abs(translateX) >= sliderWidth) {
-      translateX = 0;
+  // duplicate the contents once for seamless loop
+  slider.innerHTML += slider.innerHTML;
+
+  // wait a frame to ensure layout updated before measuring
+  requestAnimationFrame(() => {
+    const sliderWidth = slider.scrollWidth / 2;
+    let translateX = 0;
+
+    function step() {
+      translateX -= speed;
+      if (Math.abs(translateX) >= sliderWidth) {
+        // reset to 0 (start) when one copy scrolled out
+        translateX = 0;
+      }
+      slider.style.transform = `translateX(${translateX}px)`;
+      requestAnimationFrame(step);
     }
-    whySlider.style.transform = `translateX(${translateX}px)`;
-    requestAnimationFrame(animateWhySlider);
-  }
-  animateWhySlider();
+    // kick off
+    requestAnimationFrame(step);
+  });
 }
 
-const animated = document.querySelectorAll("[data-animate]");
-window.addEventListener("scroll", () => {
-  animated.forEach((el) => {
+// init both sliders (unique IDs)
+initInfiniteSlider("why-slider", 0.5);
+
+/* ===== scroll animation trigger for elements with [data-animate] ===== */
+const animatedEls = document.querySelectorAll("[data-animate]");
+function handleScrollAnimate() {
+  animatedEls.forEach((el) => {
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight - 100) el.classList.add("visible");
   });
-});
+}
+window.addEventListener("scroll", handleScrollAnimate);
+document.addEventListener("DOMContentLoaded", handleScrollAnimate);
+
+/* ===== FAQ toggle (single declaration) ===== */
 const faqs = document.querySelectorAll(".faq");
 faqs.forEach((faq) => {
   faq.addEventListener("click", () => {
     faq.classList.toggle("open");
-  });
-});
-const sad = document.querySelector(".emoji.sad");
-const happy = document.querySelector(".emoji.happy");
-const feedbackBox = document.querySelector(".feedback-box");
-const tooltip = document.querySelector(".tooltip");
-const arcs = document.querySelectorAll(".arc");
-
-let votes = { good: 65, bad: 35, moderate: 50 };
-
-sad.addEventListener("click", () => {
-  feedbackBox.classList.remove("hidden");
-});
-
-happy.addEventListener("click", () => {
-  feedbackBox.classList.add("hidden");
-  happy.classList.add("animate");
-  setTimeout(() => happy.classList.remove("animate"), 600);
-  votes.good++;
-});
-
-arcs.forEach((arc) => {
-  arc.addEventListener("mousemove", (e) => {
-    const type = arc.classList.contains("good") ? "Good" : "Bad";
-    const count = votes[type.toLowerCase()];
-    tooltip.textContent = `${type}: ${count} votes`;
-    tooltip.style.left = e.offsetX + "px";
-    tooltip.style.top = e.offsetY + "px";
-    tooltip.classList.remove("hidden");
-  });
-  arc.addEventListener("mouseleave", () => {
-    tooltip.classList.add("hidden");
   });
 });

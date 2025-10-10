@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Moon-Light — Parallax Scrolling (Responsive)</title>
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
@@ -13,13 +14,16 @@
     <script
       src="https://kit.fontawesome.com/6892feb0b7.js"
       crossorigin="anonymous"
+      defer
     ></script>
     <link rel="stylesheet" href="Home.css" />
   </head>
 
   <body>
     <header>
-      <a href="https://philastcodes.netlify.app" class="logo">Philast</a>
+      <a href="https://philastcodes.netlify.app" class="logo"
+        ><div class="logo"></div
+      ></a>
       <button class="menu-toggle" aria-label="Toggle menu">
         <span></span>
       </button>
@@ -31,7 +35,7 @@
             </a>
           </li>
           <li>
-            <a href="Code.html"> <i class="fa-solid fa-terminal"></i> </a>
+            <a href="#"> <i class="fa-solid fa-terminal"></i> </a>
           </li>
           <li>
             <a href="#">
@@ -50,20 +54,7 @@
         alt="Starry sky"
         loading="lazy"
       />
-      <img
-        src="moon.png"
-        id="moon"
-        class="layer"
-        alt="Moon"
-        loading="lazy"
-        style="
-          width: 500px;
-          height: 500px;
-          left: 10%;
-          top: 10%;
-          transform: translate(-50%, -50%);
-        "
-      />
+      <img src="moon.png" id="moon" class="layer" alt="Moon" loading="lazy" />
       <img
         src="mountains_behind.png"
         id="mountains_behind"
@@ -71,7 +62,7 @@
         alt="Distant mountains"
         loading="lazy"
       />
-      <h2 id="text">Philast</h2>
+      <!-- <div class="logo-text"><img src="Text-logo.png" id="text" /></div> -->
       <a href="#home" id="btn">Explore More</a>
       <img
         src="mountains_front.png"
@@ -153,7 +144,7 @@
     <section id="faq">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-container">
-        <div class="faq">
+        <div class="faq" data-animate>
           <div class="faq-toggle">
             <span class="faq-icon"><h5>What is Philast?</h5></span>
           </div>
@@ -166,7 +157,7 @@
           </div>
         </div>
 
-        <div class="faq">
+        <div class="faq" data-animate>
           <div class="faq-toggle">
             <span class="faq-icon"
               ><h5>Can I use these templates for my projects?</h5></span
@@ -181,56 +172,53 @@
           </div>
         </div>
 
-        <div class="faq">
+        <div class="faq" data-animate>
           <div class="faq-toggle">
             <span class="faq-icon"
-              ><h5>How is it diffrent from others?</h5></span
+              ><h5>How is it different from others?</h5></span
             >
           </div>
           <div class="faq-content">
-            <h3>How is it diffrent from others?</h3>
+            <h3>How is it different from others?</h3>
             <p>
-              Philast focuses on providing high-quality, easy-to-use
-              templates<br />
-              that are free to download and use without any restrictions and
-              you<br />
-              will find these in youtube videos asking to comment them to get
-              <br />code but we provide it for free.
+              Philast focuses on providing high-quality, easy-to-use templates
+              that are free to download and use without any restrictions.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="review-section">
-      <div class="review-container glass">
-        <h2>How was your experience?</h2>
-        <div class="emoji-row">
-          <div class="emoji sad" data-type="bad">
-            <i class="fa-solid fa-face-frown"></i>
+    <section class="reviews">
+      <div class="rew-content">
+        <h2>What people say about us?</h2>
+        <div class="rew-boxes">
+          <div class="re-box">
+            <i class="fa-solid fa-user-tie" style="color: #b197fc"></i>
+            <h3>John Doe</h3>
+            <p>
+              "Philast has transformed the way I approach web design. The
+              templates are not only visually stunning but also incredibly easy
+              to customize."
+            </p>
           </div>
-
-          <div class="emoji smile" data-type="moderate">
-            <i class="fa-solid fa-face-smile"></i>
+          <div class="re-box">
+            <i class="fa-solid fa-user-tie" style="color: #b197fc"></i>
+            <h3>Harat</h3>
+            <p>
+              "Philast has transformed the way I approach web design. The
+              templates are not only visually stunning but also incredibly easy
+              to customize."
+            </p>
           </div>
-
-          <div class="emoji happy" data-type="good">
-            <i class="fa-solid fa-face-laugh"></i>
+          <div class="re-box">
+            <i class="fa-solid fa-user-tie" style="color: #b197fc"></i>
+            <h3>Jane Doe</h3>
+            <p>
+              "The templates are amazing! Customization has never been this
+              smooth."
+            </p>
           </div>
-        </div>
-
-        <div class="feedback-box hidden">
-          <textarea placeholder="Tell us what went wrong..."></textarea>
-          <button class="submit-btn">Submit</button>
-        </div>
-
-        <div class="chart-container">
-          <svg class="semi-chart" viewBox="0 0 200 100">
-            <path class="arc bad" d="M10,100 A90,90 0 0,1 100,10" />
-            <path class="arc moderate" d="M100,10 A90,90 0 0,1 190,100" />
-            <path class="arc good" d="M100,10 A90,90 0 0,1 190,100" />
-          </svg>
-          <div class="tooltip hidden"></div>
         </div>
       </div>
     </section>
@@ -265,6 +253,7 @@
         India. All rights reserved.
       </div>
     </footer>
+
     <script src="Home.js"></script>
   </body>
 </html>
