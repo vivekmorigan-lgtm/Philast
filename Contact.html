@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <script
+      src="https://kit.fontawesome.com/6892feb0b7.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link rel="stylesheet" href="Contact.css" />
+  </head>
+
+  <body>
+    <!-- glowing background orbs -->
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+
+    <div class="external-cont">
+      <div class="contact-container">
+        <h2>Contact Us</h2>
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          autocomplete="off"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="input-wrapper">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <span class="clear-btn">×</span>
+          </div>
+
+          <div class="input-wrapper">
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <span class="clear-btn">×</span>
+          </div>
+
+          <div class="input-wrapper">
+            <textarea
+              name="message"
+              placeholder="Your Query..."
+              required
+            ></textarea>
+            <span class="clear-btn">×</span>
+          </div>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <div class="more-opt">
+        <p style="text-align: center; margin-top: 15px; font-size: 14px">
+          Or reach us at
+        </p>
+<div class="email">
+  <div class="icons">
+    <i class="fa-solid fa-envelope"></i>
+    <i class="fa-brands fa-youtube"></i>  
+    <i class="fa-brands fa-github"></i>
+    <i class="fa-brands fa-instagram  "></i>
+  </div>
+  <div class="emails">
+    <h4>Emails :</h4>
+    <span class="icon-txt">Vivek.Morigan@gmail.com</span>
+    <span class="icon-txt">PhilastCodes@gmail.com</span>
+  </div>
+</div>
+    <!-- Custom Popup -->
+    <div id="popup" class="popup">
+      <h3>Thank You! 💜</h3>
+      <p>We've received your message and will respond soon.</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script src="Contact.js"></script>
+  </body>
+</html>
