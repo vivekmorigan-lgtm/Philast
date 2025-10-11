@@ -6,14 +6,18 @@ form.addEventListener("submit", function (e) {
 
   const formData = new FormData(form);
 
-  fetch("/", {
+  fetch(form.action, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString(),
+    body: formData,
+    headers: { Accept: "application/json" },
   })
-    .then(() => {
-      popup.classList.add("active");
-      form.reset();
+    .then((response) => {
+      if (response.ok) {
+        popup.classList.add("active");
+        form.reset();
+      } else {
+        alert("❌ Something went wrong. Please try again.");
+      }
     })
     .catch(() => alert("❌ Something went wrong. Please try again."));
 });
@@ -21,6 +25,7 @@ form.addEventListener("submit", function (e) {
 function closePopup() {
   popup.classList.remove("active");
 }
+
 document.querySelectorAll(".clear-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     const input = btn.previousElementSibling;
