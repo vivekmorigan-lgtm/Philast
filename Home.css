@@ -9,7 +9,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background: linear-gradient(#2b1055, #7597de);
+  background: linear-gradient(#2b1055, #7597de) 10%;
   color: #fff;
   min-height: 100vh;
   overflow-x: hidden;
@@ -136,7 +136,6 @@ img#mountains_behind {
 img#moon {
   z-index: 30;
   mix-blend-mode: screen;
-  /* center the moon using translate; JS will append its parallax translate without removing this */
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
@@ -157,9 +156,8 @@ img#stars {
 .logo {
   width: 30px;
   height: 30px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: url(logo.png) no-repeat center/cover;
+  background: url('Logo.png') no-repeat center/cover;
+  background-size: cover;
 }
 
 /* star float (animates top property, not transform) */
@@ -250,6 +248,37 @@ img#stars {
   flex: 1 1 400px;
   min-width: 280px;
   max-width: 600px;
+}
+.home-cont{
+  background: #7597de;
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 40px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.5s;
+  margin-top: 10px;
+  border: 1px solid #7597de;
+}
+.home-cont::after{
+  height: 100%;
+  left: 35%;
+  top: 0;
+  transform: skew(50deg);
+  width: 0;
+  transition-duration: 0.6s;
+  transform-origin: top left;
+}
+.home-cont:hover{
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border: 1px solid #fff;
+}
+.home-cont:hover::after{
+  width: 135%;
+  height: 100%;
 }
 .home-text h1 {
   font-size: clamp(2rem, 5vw, 3rem);
@@ -364,7 +393,7 @@ img#stars {
   gap: 30px;
   will-change: transform;
 }
-.box {
+ .box {
   min-width: 280px;
   max-width: 300px;
   flex: 0 0 280px;
@@ -384,7 +413,16 @@ img#stars {
   border: 1.5px solid rgba(156, 187, 255, 0.15);
   backdrop-filter: blur(10px);
   height: 380px;
+} 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
+
 .box:hover {
   transform: translateY(-10px);
   box-shadow: 0 12px 40px rgba(117, 151, 222, 0.3);
@@ -451,6 +489,8 @@ img#stars {
   align-items: center;
   justify-content: center;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  border: 1.5px solid rgba(156, 187, 255, 0.15);
+  padding: auto;
 }
 .faq.open {
   width: 600px;
@@ -459,6 +499,7 @@ img#stars {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding: 70px;
   background: linear-gradient(
     135deg,
@@ -469,7 +510,8 @@ img#stars {
   backdrop-filter: blur(10px);
   color: #7597de;
   box-shadow: 0 6px 30px rgba(43, 16, 85, 0.2);
-  transition: all 1s cubic-bezier(0.25, 1, 0.3, 1);
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.3, 1);
+  padding: 10px 30px;
 }
 .faq-icon {
   font-size: 1rem;
@@ -662,7 +704,7 @@ img#stars {
 
 footer {
   padding: 40px 5%;
-  background: linear-gradient(180deg, #12010f, #0b0610);
+  background: rgb(0,0,0);
   color: #cfcfe0;
 }
 footer a {
@@ -786,14 +828,8 @@ footer p {
     rgba(43, 16, 85, 0.3) 100%
   );
 }
-
 .rew-boxes::-webkit-scrollbar {
-  height: 7px;
-}
-.rew-boxes::-webkit-scrollbar-thumb {
-  border-radius: 7px;
-  background: #111 10%;
-  border: 1px solid #8455dd;
+ display: none;
 }
 
 .re-box i {

@@ -1,258 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Philast</title>
-     <link rel="icon" href="Logo.png" >
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/6892feb0b7.js"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <link rel="stylesheet" href="Home.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Philast</title>
+  <link rel="icon" href="Logo.png">
 
-  <body>
-    <header>
-      <a href="https://philastcodes.netlify.app" class="logo"
-        ><div class="logo"></div
-      ></a>
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <span></span>
-      </button>
-      <nav id="nav">
-        <ul>
-          <li>
-            <a class="active" href="https://philastcodes.netlify.app">
-              <i class="fa-solid fa-house"></i>
-            </a>
-          </li>
-          <li>
-            <a href="Code.html"> <i class="fa-solid fa-terminal"></i> </a>
-          </li>
-          <li>
-            <a href="Contact.html">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/6892feb0b7.js" crossorigin="anonymous" defer></script>
+  <link rel="stylesheet" href="Home.css" />
+</head>
 
-    <section class="hero" aria-label="Parallax hero">
-      <img
-        src="stars.png"
-        id="stars"
-        class="layer small"
-        alt="Starry sky"
-        loading="lazy"
-      />
-      <img src="moon.png" id="moon" class="layer" alt="Moon" loading="lazy" />
-      <img
-        src="mountains_behind.png"
-        id="mountains_behind"
-        class="layer"
-        alt="Distant mountains"
-        loading="lazy"
-      />
-      <!-- <div class="logo-text"><img src="Text-logo.png" id="text" /></div> -->
-      <a href="#home" id="btn">Explore More</a>
-      <img
-        src="mountains_front.png"
-        id="mountains_front"
-        class="layer"
-        alt="Foreground mountains"
-        loading="lazy"
-      />
-    </section>
+<body>
+  <header>
+    <a href="https://philastcodes.netlify.app" class="logo">
+      <div class="logo"></div>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span>
+    </button>
+    <nav id="nav">
+      <ul>
+        <li>
+          <a class="active" href="https://philastcodes.netlify.app">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </li>
+        <li>
+          <a href="Code.html"> <i class="fa-solid fa-terminal"></i> </a>
+        </li>
+        <li>
+          <a href="Contact.html">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-    <section class="home fade-in" id="home" aria-label="Home">
-      <div class="home-container">
-        <div class="home-image">
-          <img src="Main.jpg" alt="Profile" />
+  <section class="hero" aria-label="Parallax hero">
+    <img src="stars.png" id="stars" class="layer small" alt="Starry sky" loading="lazy" />
+    <img src="moon.png" id="moon" class="layer" alt="Moon" loading="lazy" />
+    <img src="mountains_behind.png" id="mountains_behind" class="layer" alt="Distant mountains" loading="lazy" />
+    <!-- <div class="logo-text"><img src="Text-logo.png" id="text" /></div> -->
+    <a href="#home" id="btn">Explore More</a>
+    <img src="mountains_front.png" id="mountains_front" class="layer" alt="Foreground mountains" loading="lazy" />
+  </section>
+
+  <section class="home fade-in" id="home" aria-label="Home">
+    <div class="home-container">
+      <div class="home-image">
+        <img src="Main.jpg" alt="Profile" />
+      </div>
+      <div class="home-text">
+        <h1>Hi, It's <span class="highlight">Vivek</span></h1>
+        <h3 class="typing-wrap">
+          I'm a <span id="typed-text"></span><span class="cursor">|</span>
+        </h3>
+        <p>
+          Check out Philast to see latest projects and get free source code
+          for your own use. Contact me for custom project or collaborations.
+        </p>
+        <div class="social-icons">
+          <a href="https://github.com/vivekmorigan-lgtm" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.instagram.com/the_vivek_yz/" aria-label="Instagram"><i
+              class="fa-brands fa-instagram"></i></a>
         </div>
-        <div class="home-text">
-          <h1>Hi, It's <span class="highlight">Vivek</span></h1>
-          <h3 class="typing-wrap">
-            I'm a <span id="typed-text"></span><span class="cursor">|</span>
-          </h3>
+       <button class="home-cont" onclick="window.location.href='https://philast.netlify.app/contact'">Contact</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec fade-in-up" id="why">
+    <div class="container">
+      <h2>Why choose us?</h2>
+      <div class="boxes">
+        <div class="slider" id="why-slider">
+          <div class="box">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <h2>Free codes</h2>
+            <p>Get premium quality code and templates at a free price.</p>
+          </div>
+          <div class="box">
+            <i class="fa-solid fa-download"></i>
+            <h2>Free download</h2>
+            <p>
+              Access and download source code instantly for free. No
+              subscriptions or paywalls.
+            </p>
+          </div>
+          <div class="box">
+            <i class="fa-solid fa-file-arrow-down"></i>
+            <h2>All code in one file</h2>
+            <p>
+              Every project is neatly organized in a single file for easy use
+              and integration.
+            </p>
+          </div>
+          <div class="box">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <h2>Easy Access</h2>
+            <p>
+              Get all code without even logging in. Fast, secure, and
+              hassle-free access.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq" data-animate>
+        <div class="faq-toggle">
+          <span class="faq-icon">
+            <h5>What is Philast?</h5>
+          </span>
+        </div>
+        <div class="faq-content">
+          <h3>What is Philast?</h3>
           <p>
-            Check out Philast to see latest projects and get free source code
-            for your own use. Contact me for custom project or collaborations.
+            Philast is a creative hub providing free templates and
+            design-to-code resources to developers and designers.
           </p>
-          <div class="social-icons">
-            <a href="https://github.com/vivekmorigan-lgtm" aria-label="GitHub"
-              ><i class="fa-brands fa-github"></i
-            ></a>
-            <a href="https://www.instagram.com/the_vivek_yz/" aria-label="Instagram"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
-          </div>
         </div>
       </div>
-    </section>
 
-    <section class="sec fade-in-up" id="why">
-      <div class="container">
-        <h2>Why choose us?</h2>
-        <div class="boxes">
-          <div class="slider" id="why-slider">
-            <div class="box">
-              <i class="fa-solid fa-hand-holding-dollar"></i>
-              <h2>Free codes</h2>
-              <p>Get premium quality code and templates at a free price.</p>
-            </div>
-            <div class="box">
-              <i class="fa-solid fa-download"></i>
-              <h2>Free download</h2>
-              <p>
-                Access and download source code instantly for free. No
-                subscriptions or paywalls.
-              </p>
-            </div>
-            <div class="box">
-              <i class="fa-solid fa-file-arrow-down"></i>
-              <h2>All code in one file</h2>
-              <p>
-                Every project is neatly organized in a single file for easy use
-                and integration.
-              </p>
-            </div>
-            <div class="box">
-              <i class="fa-solid fa-right-to-bracket"></i>
-              <h2>Easy Access</h2>
-              <p>
-                Get all code without even logging in. Fast, secure, and
-                hassle-free access.
-              </p>
-            </div>
-          </div>
+      <div class="faq" data-animate>
+        <div class="faq-toggle">
+          <span class="faq-icon">
+            <h5>Can I use these templates for my projects?</h5>
+          </span>
+        </div>
+        <div class="faq-content">
+          <h3>Can I use these templates for my projects?</h3>
+          <p>
+            Yes, all Philast templates are free to use and customize for
+            personal or professional projects.
+          </p>
         </div>
       </div>
-    </section>
 
-    <section id="faq">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-container">
-        <div class="faq" data-animate>
-          <div class="faq-toggle">
-            <span class="faq-icon"><h5>What is Philast?</h5></span>
-          </div>
-          <div class="faq-content">
-            <h3>What is Philast?</h3>
-            <p>
-              Philast is a creative hub providing free templates and
-              design-to-code resources to developers and designers.
-            </p>
-          </div>
+      <div class="faq" data-animate>
+        <div class="faq-toggle">
+          <span class="faq-icon">
+            <h5>How is it different from others?</h5>
+          </span>
         </div>
-
-        <div class="faq" data-animate>
-          <div class="faq-toggle">
-            <span class="faq-icon"
-              ><h5>Can I use these templates for my projects?</h5></span
-            >
-          </div>
-          <div class="faq-content">
-            <h3>Can I use these templates for my projects?</h3>
-            <p>
-              Yes, all Philast templates are free to use and customize for
-              personal or professional projects.
-            </p>
-          </div>
-        </div>
-
-        <div class="faq" data-animate>
-          <div class="faq-toggle">
-            <span class="faq-icon"
-              ><h5>How is it different from others?</h5></span
-            >
-          </div>
-          <div class="faq-content">
-            <h3>How is it different from others?</h3>
-            <p>
-              Philast focuses on providing high-quality, easy-to-use templates
-              that are free to download and use without any restrictions.
-            </p>
-          </div>
+        <div class="faq-content">
+          <h3>How is it different from others?</h3>
+          <p>
+            Philast focuses on providing high-quality, easy-to-use templates
+            that are free to download and use without any restrictions.
+          </p>
         </div>
       </div>
-    </section>
-
-    <section class="reviews">
-      <div class="rew-content">
-        <h2>What people say about us?</h2>
-        <div class="rew-boxes">
-          <div class="re-box">
-            <i class="fa-solid fa-user-tie" style="color: #b197fc"></i>
-            <h3>John Doe</h3>
-            <p>
-              "Philast has transformed the way I approach web design. The
-              templates are not only visually stunning but also incredibly easy
-              to customize."
-            </p>
-          </div>
-          <div class="re-box">
-            <i class="fa-solid fa-user-tie" style="color: #b197fc"></i>
-            <h3>Harat</h3>
-            <p>
-              "Philast has transformed the way I approach web design. The
-              templates are not only visually stunning but also incredibly easy
-              to customize."
-            </p>
-          </div>
-          <div class="re-box">
-            <i class="fa-solid fa-user-tie" style="color: #b197fc"></i>
-            <h3>Jane Doe</h3>
-            <p>
-              "The templates are amazing! Customization has never been this
-              smooth."
-            </p>
-          </div>
+      <div class="faq" data-animate>
+        <div class="faq-toggle">
+          <span class="faq-icon">
+            <h5>What do I get from logging-in?</h5>
+          </span>
+        </div>
+        <div class="faq-content">
+          <h3>What do I get from logging-in?</h3>
+          <p>
+            Logging in allows you to contact develper , rate , and receive updates on new releases.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <hr />
-
-    <footer id="contact">
-      <div class="wrap">
-        <div class="col">
-          <a href="https://philast.netlify.app/contact"><h4>Contact<i class="fa-solid fa-up-right-from-square"></i></h4></a>
-          <p>Email: Vivek.Morigan@gmail.com</p>
-          <p>Location: India</p>
+  <section class="reviews">
+    <div class="rew-content">
+      <h2>What people say about us?</h2>
+      <div class="rew-boxes">
+        <div class="re-box">
+          <i class="fa-solid fa-user-tie" style="color: #b197fc"></i>
+          <h3>Alam mohomad</h3>
+          <p>
+            "Philast has transformed the way I approach web design. The
+            templates are not only visually stunning but also incredibly easy
+            to customize."
+          </p>
         </div>
-        <div class="col">
-          <h4>Follow</h4>
-          <div class="social">
-            <a href="https://github.com/vivekmorigan-lgtm" aria-label="GitHub"
-              ><i class="fa-brands fa-github"></i
-            ></a>
-            <a href="https://www.instagram.com/the_vivek_yz/" aria-label="Instagram"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
-          </div>
+        <div class="re-box">
+          <i class="fa-solid fa-user-tie" style="color: #b197fc"></i>
+          <h3>Harat</h3>
+          <p>
+            "Philast has transformed the way I approach web design. The
+            templates are not only visually stunning but also incredibly easy
+            to customize."
+          </p>
+        </div>
+        <div class="re-box">
+          <i class="fa-solid fa-user-tie" style="color: #b197fc"></i>
+          <h3>Jane Doe</h3>
+          <p>
+            "The templates are amazing! Customization has never been this
+            smooth."
+          </p>
+        </div>
+        <div class="re-box">
+          <i class="fa-solid fa-user-tie" style="color: #b197fc"></i>
+          <h3>James</h3>
+          <p>
+            "I found the perfect template for my portfolio on Philast. It was
+            easy to download and customize to fit my style."
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="col">
+        <a href="https://philast.netlify.app/contact">
+          <h4>Contact<i class="fa-solid fa-up-right-from-square"></i></h4>
+        </a>
+        <p>Email: Vivek.Morigan@gmail.com</p>
+        <p>Location: India</p>
+      </div>
+      <div class="col">
+        <h4>Social</h4>
+        <div class="social">
+          <a href="https://github.com/vivekmorigan-lgtm" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.instagram.com/the_vivek_yz/" aria-label="Instagram"><i
+              class="fa-brands fa-instagram"></i></a>
         </div>
       </div>
-      <div class="copyright">
-        © <span id="year"></span> Philast — Built with
-        <i class="fa-solid fa-heart fa-bounce" style="color: #ff0000"></i> from
-        India. All rights reserved.
-      </div>
-    </footer>
+    </div>
+    <div class="copyright">
+      © <span id="year"></span> Philast — Built with
+      <i class="fa-solid fa-heart fa-bounce" style="color: #ff0000"></i> from
+      India. All rights reserved.
+    </div>
+  </footer>
 
-    <script src="Home.js"></script>
-  </body>
+  <script src="Home.js"></script>
+</body>
+
 </html>
-
-
-
-
