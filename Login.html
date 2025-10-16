@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="refresh" content="">
+  <title>Login & Sign Up</title>
+  <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+
+<div class="wrapper" id="formWrapper">
+  <!-- Login Form -->
+  <div class="form-container login">
+    <h2>Login</h2>
+    <form>
+      <input type="email" placeholder="Email,username..." required />
+      <input type="password" placeholder="Password" required />
+      <div class="forgot-password" tabindex="0">Forgot password?</div>
+      <button type="submit" class="submit-btn">Login</button>
+    </form>
+  </div>
+
+  <!-- Signup Form -->
+  <div class="form-container signin">
+    <h2>Sign Up</h2>
+    <form>
+      <input type="text" placeholder="Username" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <input type="password" placeholder="Confirmed Password" required />
+      <label class="accept-terms"><input type="checkbox" required /> I accept the terms & conditions</label>
+      <button type="submit" class="submit-btn">Sign Up</button>
+    </form>
+  </div>
+
+  <!-- Blue Toggle -->
+  <div class="toggle-container">
+    <h2 id="toggleHeading">Don't have an account?</h2>
+    <p id="toggleText">Sign up to get started!</p>
+    <button class="switch-btn" id="toggleBtn">Sign Up</button>
+  </div>
+</div>
+
+<script>
+  const wrapper = document.getElementById('formWrapper');
+  const toggleBtn = document.getElementById('toggleBtn');
+  const toggleHeading = document.getElementById('toggleHeading');
+  const toggleText = document.getElementById('toggleText');
+
+  toggleBtn.addEventListener('click', () => {
+    wrapper.classList.toggle('active');
+
+    if(wrapper.classList.contains('active')){
+      toggleHeading.textContent = "Already have an account?";
+      toggleText.textContent = "Login to your account!";
+      toggleBtn.textContent = "Login";
+    } else {
+      toggleHeading.textContent = "Don't have an account?";
+      toggleText.textContent = "Sign up to get started!";
+      toggleBtn.textContent = "Sign Up";
+    }
+  });
+</script>
+
+</body>
+</html>
