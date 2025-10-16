@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set New Password</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+    <style>
+        /* ===== Reset & Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: #111;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* ===== Container ===== */
+        .container {
+            background: #222;
+            padding: 40px 30px;
+            border-radius: 15px;
+            width: 350px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        /* ===== Form ===== */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="password"] {
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+            background: rgba(0, 0, 0, 0.85);
+            color: #ccc;
+            font-size: 1rem;
+            transition: border 0.3s ease, background 0.3s ease;
+        }
+
+        input[type="password"]:focus {
+            border: 2px solid #3a1675;
+            background: rgba(0, 0, 0, 0.95);
+            outline: none;
+        }
+
+        /* ===== Button ===== */
+        button.submit-btn {
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #3a1675;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button.submit-btn:hover {
+            background: #1e3c72;
+            transform: scale(1.05);
+        }
+
+        /* ===== Popups ===== */
+        .pop-not,
+        .pop-error {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #fff;
+            display: none;
+            z-index: 9999;
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        .pop-not {
+            background: #00b894;
+        }
+
+        .pop-error {
+            background: #ff4b4b;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+
+        .back-link a {
+            color: #366ac4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            color: #1e3c72;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: auto;
+                padding: 40px 10px;
+            }
+
+            .container {
+                width: 90%;
+                max-width: 400px;
+                padding: 35px 25px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            input[type="password"] {
+                font-size: 1rem;
+                padding: 10px 12px;
+            }
+
+            button.submit-btn {
+                font-size: 1rem;
+                padding: 10px;
+            }
+        }
+
+        /* For mobile phones */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 5px;
+            }
+
+            .container {
+                width: 95%;
+                padding: 25px 18px;
+                border-radius: 12px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+
+            input[type="password"],
+            button.submit-btn {
+                font-size: 0.95rem;
+                padding: 10px;
+            }
+
+            .back-link {
+                font-size: 0.85rem;
+            }
+
+            .pop-not,
+            .pop-error {
+                right: 10px;
+                left: 10px;
+                width: auto;
+                text-align: center;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* For very small screens (extra compact) */
+        @media (max-width: 400px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            input[type="password"] {
+                font-size: 0.9rem;
+                padding: 8px 10px;
+            }
+
+            button.submit-btn {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+
+            .back-link {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Set New Password</h2>
+        <form id="newPasswordForm">
+            <input type="password" id="password" placeholder="Enter new password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm new password" required>
+            <button type="submit" class="submit-btn">Set Password</button>
+        </form>
+        <p class="back-link"><a href="login.html">Back to Login</a></p>
+    </div>
+
+    <div class="pop-not" id="popSuccess">Password updated successfully!</div>
+    <div class="pop-error" id="popError">Error updating password!</div>
+
+    <script>
+        // 🔹 Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCIo1UOOBqAujvda-QICd2qtRi8nGrQzvs",
+            authDomain: "login-data-29ae4.firebaseapp.com",
+            projectId: "login-data-29ae4",
+            storageBucket: "login-data-29ae4.appspot.com",
+            messagingSenderId: "911329059861",
+            appId: "1:911329059861:web:25f3d4c0bbb0c761fc1a1c",
+            measurementId: "G-YGQCZ523QF"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Get oobCode from URL (Firebase sends this in password reset email)
+        const urlParams = new URLSearchParams(window.location.search);
+        const oobCode = urlParams.get('oobCode');
+
+        if (!oobCode) {
+            const pop = document.getElementById('popError');
+            pop.innerText = 'Invalid or missing reset code!';
+            pop.style.display = 'block';
+        }
+
+        // Form submit
+        document.getElementById('newPasswordForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                const pop = document.getElementById('popError');
+                pop.innerText = 'Passwords do not match!';
+                pop.style.display = 'block';
+                setTimeout(() => { pop.style.display = 'none'; }, 4000);
+                return;
+            }
+
+            auth.confirmPasswordReset(oobCode, password)
+                .then(() => {
+                    const pop = document.getElementById('popSuccess');
+                    pop.style.display = 'block';
+                    setTimeout(() => { window.location.href = 'login.html'; }, 3000);
+                })
+                .catch((error) => {
+                    const pop = document.getElementById('popError');
+                    pop.innerText = error.message;
+                    pop.style.display = 'block';
+                    setTimeout(() => { pop.style.display = 'none'; }, 4000);
+                });
+        });
+    </script>
+</body>
+
+</html>

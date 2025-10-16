@@ -6,17 +6,18 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    background: #111;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(8px);
+    color: #fff;
 }
 
 .wrapper {
     position: relative;
-    background: #fff;
+    background: #222;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     width: 800px;
@@ -33,7 +34,7 @@ body {
 
 .form-container h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: #aaa;
 }
 
 .form-container form {
@@ -44,9 +45,14 @@ body {
 .form-container input {
     padding: 12px 15px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #aaa;
+    color: #ccc;
+    font-size: 1rem;
     border-radius: 10px;
+    height: 40px;
 }
+
 
 .form-container input:focus {
     border: 2px solid #2a5298;
@@ -57,24 +63,55 @@ body {
     margin-top: 15px;
     padding: 12px;
     border: none;
-    background: linear-gradient(to right, #1e3c72, #2a5298);
+    background: #3a1675;
     color: white;
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
     transition: background 0.3s ease;
+    overflow: hidden;
+}
+
+.form-container button.submit-btn::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+    margin-top: 5px;
+    z-index: 1;
+    animation: move 3s infinite;
+    border-radius: 1px;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(-5px);
+        background-color: #3a1675;
+    }
+
+    50% {
+        background-color: #fff;
+    }
+
+    100% {
+        transform: translate(300px);
+        background-color: #3a1675;
+    }
 }
 
 .form-container button.submit-btn:hover {
-    background: linear-gradient(to left, #1e3c72, #2a5298);
+    background: #1e3c72;
 }
 
 /* Blue Toggle with curved genie effect */
 .toggle-container {
     width: 50%;
     height: 100%;
-    background: linear-gradient(to bottom right, #1e3c72, #2a5298);
-    color: white;
+    /* background: linear-gradient(to bottom right, #3a1675, #2b1055); */
+    color: #eee;
+    background: url(https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZThuZ3dyZDg5eG5taTNzaWJiZmNtMnVrNmw0aTBvaXBveHNwd3M0NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZgTR3UQ9XAWDvqy9jv/giphy.gif);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -86,12 +123,20 @@ body {
     left: 0;
     border-radius: 20px 0 0 20px;
     z-index: 2;
-
     transform-origin: left center;
     transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1),
         border-radius 0.8s ease-in-out,
         clip-path 0.8s ease-in-out;
     clip-path: ellipse(100% 120% at left center);
+}
+
+.toggle-container::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 3;
 }
 
 .wrapper.active .toggle-container {
@@ -102,21 +147,25 @@ body {
 
 .toggle-container h2 {
     margin-bottom: 20px;
+    z-index: 7;
 }
 
 .toggle-container p {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    z-index: 7;
+    font-weight: 600;
 }
 
 .toggle-container button.switch-btn {
     padding: 8px 25px;
-    background: transparent;
-    border: 2px solid white;
+    background: #3a1675;
+    border: 1px solid white;
     color: white;
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
     transition: background 0.3s ease;
+    z-index: 7;
 }
 
 .toggle-container button.switch-btn:hover {
@@ -129,11 +178,14 @@ body {
 }
 
 .forgot-password {
-    color: #2a5298;
+    color: #366ac4;
     margin-top: 8px;
     font-size: 0.9rem;
     cursor: pointer;
-    text-decoration: underline;
+}
+.forgot-password a{
+        text-decoration: none;
+        font-weight: 500;
 }
 
 .accept-terms {
@@ -144,79 +196,6 @@ body {
 
 .accept-terms input {
     margin-right: 8px;
-}
-
-.social-login {
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
-    gap: 15px;
-}
-
-.social-btn {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.social-btn svg {
-    width: 24px;
-    height: 24px;
-    transition: fill 0.3s ease;
-}
-
-.social-btn.google svg {
-    fill: #db4437;
-}
-
-.social-btn.google:hover {
-    background: #db4437;
-}
-
-.social-btn.google:hover svg {
-    fill: white;
-}
-
-.social-btn.facebook svg {
-    fill: #1877f2;
-}
-
-.social-btn.facebook:hover {
-    background: #1877f2;
-}
-
-.social-btn.facebook:hover svg {
-    fill: white;
-}
-
-.social-btn.github svg {
-    fill: #333;
-}
-
-.social-btn.github:hover {
-    background: #333;
-}
-
-.social-btn.github:hover svg {
-    fill: white;
-}
-
-.social-btn.x svg {
-    fill: #000;
-}
-
-.social-btn.x:hover {
-    background: #000;
-}
-
-.social-btn.x:hover svg {
-    fill: white;
 }
 
 @media screen and (max-width: 768px) {
@@ -234,4 +213,78 @@ body {
         clip-path: none;
         transform: none !important;
     }
+}
+
+.pop-reg,
+.pop-not {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    display: none;
+    z-index: 9999;
+    animation: fadeInOut 3s ease;
+}
+
+.pop-reg {
+    background: #ff4b4b;
+    /* red tone for existing email */
+}
+
+.pop-not {
+    background: #ffa500;
+    /* orange tone for wrong credentials */
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    10%,
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* Style for Show/Hide Password Button */
+#show-btn {
+    position: relative;
+    top: 0;
+    right: -80px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #ff4b4b;
+    padding: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    height: 25px;
+    width: 25px;
+}
+
+#show-btn-2 {
+    position: relative;
+    top: 0;
+    right: -80px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #ff4b4b;
+    padding: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    height: 25px;
+    width: 25px;
 }

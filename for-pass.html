@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <style>
+        /* ===== Reset & Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: #111;
+            color: #fff;
+            display: flex;
+            align-items: space-evenly;
+            justify-content: space-evenly;
+            height: 100vh;
+            padding: 10px;
+        }
+
+        /* ===== Container ===== */
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-container {
+            background: #222;
+            padding: 40px 30px;
+            border-radius: 15px;
+            width: 350px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===== Heading ===== */
+        .form-container h2 {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        /* ===== Form ===== */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="email"] {
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+            background: rgba(0, 0, 0, 0.85);
+            color: #ccc;
+            font-size: 1rem;
+            transition: border 0.3s ease, background 0.3s ease;
+        }
+
+        input[type="email"]:focus {
+            border: 2px solid #3a1675;
+            background: rgba(0, 0, 0, 0.95);
+            outline: none;
+        }
+
+        /* ===== Button ===== */
+        button.submit-btn {
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #3a1675;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button.submit-btn:hover {
+            background: #1e3c72;
+            transform: scale(1.05);
+        }
+
+        /* ===== Back to Login Link ===== */
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .forgot-password a {
+            color: #366ac4;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password a:hover {
+            color: #1e3c72;
+        }
+
+        /* ===== Info Toggle Container ===== */
+        .Oppscontainer {
+            margin-top: 20px;
+            text-align: center;
+            color: #bbb;
+            max-width: 350px;
+            position: absolute;
+            top: 70px;
+            left: 50px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        .Oppscontainer h2 {
+            color: #ffa500;
+            margin-bottom: 10px;
+        }
+
+        /* ===== Popups ===== */
+        .pop-not,
+        .pop-error {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #fff;
+            display: none;
+            z-index: 9999;
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        .pop-not {
+            background: #ffa500;
+        }
+
+        div#popError {
+            display: none;
+        }
+
+        .pop-error {
+            background: #ff4b4b;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .video {
+            background: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExd285ejk3Y3o0cGh6Nms1c2duaGFveGJqZWV3Z2d6dmlvcXFqNjI5dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IgLIVXrBcID9cExa6r/giphy.gif);
+            height: 350px;
+            width: 330px;
+            border-radius: 10px;
+            object-fit: cover;
+            background-position: center;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: auto;
+                padding: 40px 10px;
+            }
+
+            .wrapper {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+            }
+
+            .Oppscontainer {
+                position: static;
+                max-width: 100%;
+                background: rgba(0, 0, 0, 0.3);
+                padding: 15px;
+                text-align: center;
+            }
+
+            .video {
+                width: 100%;
+                height: 250px;
+            }
+
+            .form-container {
+                width: 90%;
+                max-width: 400px;
+            }
+        }
+
+        /* For mobile phones (max width 600px) */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 5px;
+            }
+
+            .form-container {
+                width: 90%;
+                padding: 25px 20px;
+            }
+
+            .form-container h2 {
+                font-size: 1.3rem;
+            }
+
+            input[type="email"],
+            button.submit-btn {
+                font-size: 0.95rem;
+                padding: 10px;
+            }
+
+            .Oppscontainer h2 {
+                font-size: 1.1rem;
+            }
+
+            .Oppscontainer p {
+                font-size: 0.9rem;
+            }
+
+            .video {
+                height: 200px;
+                border-radius: 8px;
+            }
+        }
+
+        /* For very small screens (max width 400px) */
+        @media (max-width: 400px) {
+            .form-container {
+                padding: 20px 15px;
+            }
+
+            .Oppscontainer {
+                padding: 10px;
+            }
+
+            .video {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="form-container forgot-container">
+            <h2>Forgot Password</h2>
+            <form id="forgotForm">
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <button type="submit" class="submit-btn">Send Reset Link</button>
+                <p class="forgot-password"><a href="login.html">Back to Login</a></p>
+            </form>
+        </div>
+        <div class="Oppscontainer">
+            <h2>Oops!</h2>
+            <p>Forgot your password? No worries, enter your email and we'll send you a reset link.</p>
+            <h4>Fun part :</h4><br/>
+            <div class="video"></div>
+        </div>
+    </div>
+
+    <div class="pop-not" id="popSuccess">Reset email sent!</div>
+    <div class="pop-reg" id="popError">Error sending reset email!</div>
+
+    <script>// 🔹 Firebase configuration
+        // 🔹 Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCIo1UOOBqAujvda-QICd2qtRi8nGrQzvs",
+            authDomain: "login-data-29ae4.firebaseapp.com",
+            projectId: "login-data-29ae4",
+            storageBucket: "login-data-29ae4.firebasestorage.app",
+            messagingSenderId: "911329059861",
+            appId: "1:911329059861:web:25f3d4c0bbb0c761fc1a1c",
+            measurementId: "G-YGQCZ523QF"
+        };
+
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Form submit event
+        document.getElementById("forgotForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+
+            auth.sendPasswordResetEmail(email)
+                .then(() => {
+                    // Show success popup
+                    const pop = document.getElementById("popSuccess");
+                    pop.style.display = "block";
+                    setTimeout(() => { pop.style.display = "none"; }, 3000);
+                })
+                .catch((error) => {
+                    // Show error popup
+                    const pop = document.getElementById("popError");
+                    pop.innerText = error.message;
+                    pop.style.display = "block";
+                    setTimeout(() => { pop.style.display = "none"; }, 4000);
+                });
+        });
+    </script>
+</body>
+
+</html>
