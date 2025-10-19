@@ -3,7 +3,7 @@ const files = [
   {
     name: "Custom Homepage",
     desc: "A modern homepage design with vibrant colors and smooth animations using HTML and CSS. Includes a stylish clock, to-do list with date, random background refresh, shortcuts to different sites, and search bar.",
-    type: ["html"],
+    type: ["html" , "js"],
     imgs: [
       "https://www.dropbox.com/scl/fi/hgtsckhmkg4bqbmberdu7/Costom-Homepage.png?rlkey=qvp97bud77ub5gfc8g2ojwvfx&dl=0",
       "https://www.dropbox.com/scl/fi/1rhhyes1adcxuq7xhl5nl/Costom-Homepage2.png?rlkey=79bf8fpzyu5p429zl7u19xr7h&dl=0",
@@ -11,24 +11,23 @@ const files = [
     url: "https://www.dropbox.com/scl/fi/1pqs2egg38hlhqpkbmgrh/Costom-Homepage.html?rlkey=mey3zymkioozic2gmg2pmxpzo&dl=1",
   },
   {
-    name: "Login Form",
-    desc: "Beautiful animated login form with glassmorphism",
-    type: ["html", "css"],
+    name: "404 page",
+    desc: "Beautiful animated 404 error page with HTML and CSS",
+    type: ["css"],
     imgs: [
-      "https://picsum.photos/800/450?random=1",
-      "https://picsum.photos/800/450?random=2",
+      "https://www.dropbox.com/scl/fi/z9znkd7w4ustog8872yq0/404.gif?rlkey=qqxzavj9cburc2ee0yexzg540&st=jjqh4pl9&dl=0",
+      "https://www.dropbox.com/scl/fi/jo27k3vpbenr9rmeztgmn/404.jpg?rlkey=p00xwjwzkc1o5fmitstqy7mc8&st=c91rcuir&dl=0",
     ],
-    url: "https://www.dropbox.com/s/EXAMPLE/login-form.zip?dl=1",
+    url: "https://www.dropbox.com/scl/fi/xxpzekstvaogmuhq1s3fb/404-page.html?rlkey=c9zbxsec8pxmzp0oln4rphu1q&st=3dvncwlu&dl=1",
   },
   {
-    name: "Calculator App",
-    desc: "Interactive calculator with JavaScript functionality",
-    type: ["html", "css", "js"],
+    name: "Vertical clock",
+    desc: "Interactive vertical clock with JavaScript",
+    type: ["js" , "responsive"],
     imgs: [
-      "https://picsum.photos/800/450?random=3",
-      "https://picsum.photos/800/450?random=4",
+      "https://www.dropbox.com/scl/fi/jkjcx1el3xvbzx3wft90f/Screenshot-2025-10-19-111556.png?rlkey=bygwguof3ezujlfduxiusiq8h&st=mq4nibct&dl=0",
     ],
-    url: "https://www.dropbox.com/s/EXAMPLE/calculator.zip?dl=1",
+    url: "https://www.dropbox.com/scl/fi/ss0ows84xu4z9mmxly467/Clock.html?rlkey=clvilp3m7q9ho39yjk677hqww&st=lwnpsdf0&dl=1",
   },
   {
     name: "Responsive Navbar",
