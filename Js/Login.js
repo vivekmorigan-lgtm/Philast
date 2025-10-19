@@ -45,14 +45,3 @@ showBtn2.addEventListener('click', () => {
         showBtn2.innerHTML = '<i class="fa-solid fa-eye"></i>';
     }
 });
-
-// const buttons = document.querySelectorAll('.showAllBtn');
-
-// buttons.forEach(btn => {
-//   btn.addEventListener('mouseenter', () => {
-//     btn.style.color = '#3498db';
-//   });
-//   btn.addEventListener('mouseleave', () => {
-//     btn.style.color = '#333';
-//   });
-// });

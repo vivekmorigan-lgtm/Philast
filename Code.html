@@ -1,77 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Code Gallery</title>
-    <link rel="icon" href="Logo.png" >
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dashboard</title>
+    <link rel="icon" href="/Img/Logo.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-pQw4qf7mWJ4f3yqkF3kqf... (trimmed)"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="Code.css" />
+    <link rel="stylesheet" href="/CSS/Code.css" />
   </head>
 
   <body>
     <header>
-      <a href="https://philastcodes.netlify.app" class="logo"
-        ><div class="logo"></div
-      ></a>
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <span></span>
-      </button>
-      <nav id="nav">
-        <ul>
-          <li>
-            <a href="https://philastcodes.netlify.app">
-              <i class="fa-solid fa-house"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="active">
-              <i class="fa-solid fa-terminal"></i>
-            </a>
-          </li>
-          <li>
-            <a href="Contact.html">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <a href="/Home.html" class="logo" aria-label="Home">
+        <div class="logo-img" role="img" aria-hidden="true"></div>
+        <span>Dashboard</span>
+      </a>
+        <div class="profile-menu" id="profileMenuWrapper">
+          <button
+            class="Profile"
+            id="ProfileBtn"
+            aria-haspopup="true"
+            aria-expanded="false"
+            title="Open profile menu"
+          ></button>
+
+          <div
+            id="menuDropdown"
+            class="menu-dropdown"
+            role="menu"
+            aria-hidden="true"
+          >
+            <div class="menu-user">
+              <strong id="userName">Guest User</strong>
+              <span id="userEmail" style="font-size: 0.85rem; color: #fff"
+                >guest@example.com</span
+              >
+            </div>
+
+            <a href="/Contact.html" role="menuitem">Contact</a>
+            <button id="changePassBtn" style="display: none">
+              Change Password
+            </button>
+            <button id="authBtn" class="logout-btn">Login</button>
+          </div>
+        </div>
+      </div>
     </header>
-    <div class="search-filter">
-      <input type="text" id="search" placeholder="Search files..." />
-      <button class="filt-btn" id="filter">
+
+    <!-- Search & Filters -->
+    <div class="search-filter" role="region" aria-label="Search and filters">
+      <input
+        id="search"
+        type="text"
+        placeholder="Search files..."
+        aria-label="Search files"
+      />
+      <button
+        id="filter"
+        class="filt-btn"
+        aria-haspopup="true"
+        aria-expanded="false"
+        title="Open filters"
+      >
         <i class="fa-solid fa-sort"></i>
       </button>
-      <div class="filters" id="filters">
-        <div class="filter-checkbox">
-          <input type="checkbox" id="filter-html" value="html" checked />
-          <label for="filter-html">HTML</label>
-        </div>
-        <div class="filter-checkbox">
-          <input type="checkbox" id="filter-css" value="css" checked />
-          <label for="filter-css">CSS</label>
-        </div>
-        <div class="filter-checkbox">
-          <input type="checkbox" id="filter-js" value="js" checked />
-          <label for="filter-js">JS</label>
-        </div>
-        <div class="filter-checkbox">
-          <input
+
+      <div id="filters" class="filters" role="menu" aria-hidden="true">
+        <label class="filter-checkbox"
+          ><input type="checkbox" id="filter-html" value="html" checked />
+          HTML</label
+        >
+        <label class="filter-checkbox"
+          ><input type="checkbox" id="filter-css" value="css" checked />
+          CSS</label
+        >
+        <label class="filter-checkbox"
+          ><input type="checkbox" id="filter-js" value="js" checked /> JS</label
+        >
+        <label class="filter-checkbox"
+          ><input
             type="checkbox"
             id="filter-responsive"
             value="responsive"
             checked
           />
-          <label for="filter-responsive">Responsive</label>
-        </div>
+          Responsive</label
+        >
       </div>
     </div>
 
-    <div class="cards" id="cards"></div>
+    <main>
+      <div class="cards" id="cards" aria-live="polite"></div>
+    </main>
 
-    <script src="Code.js"></script>
+      <footer id="contact">
+    <div class="wrap">
+      <div class="col">
+        <a href="Contact.html">
+          <h4>Contact</h4>
+        </a>
+        <p>Email: Vivek.Morigan@gmail.com</p>
+        <p>Location: India</p>
+      </div>
+      <div class="quick-links">
+        <h4>Quick Links</h4>
+        <ul style="list-style: none;">
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="Code.html">Dashboard</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="#">Portfolio</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Social</h4>
+        <div class="social">
+          <a href="https://github.com/vivekmorigan-lgtm" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.instagram.com/the_vivek_yz/" aria-label="Instagram"><i
+              class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      © <span id="year"></span> Philast — Built with
+      <i class="fa-solid fa-heart fa-bounce" style="color: #ff0000"></i> from
+      India. All rights reserved.
+    </div>
+  </footer>
+
+    <script type="module" src="/Js/Code.js"></script>
   </body>
 </html>
