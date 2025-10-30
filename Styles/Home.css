@@ -34,7 +34,7 @@ nav {
   color: #ffffff;
 }
 #logo {
-  background: url("/Landing/Img/Logo.png");
+  background: url("./Img/Logo.png");
   height: 50px;
   width: 50px;
   background-position: center;
@@ -87,3 +87,4 @@ nav {
 .Cover img {
   object-fit: cover;
 }
+
