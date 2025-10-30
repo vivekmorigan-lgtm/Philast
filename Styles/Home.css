@@ -1,0 +1,89 @@
+@import url("/Landing/Styles/Global.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--txt-light);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #274b63;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+#logo-txt {
+  position: absolute;
+  left: 60px;
+  font-size: large;
+  font-weight: 800;
+  color: #ffffff;
+}
+#logo {
+  background: url("/Landing/Img/Logo.png");
+  height: 50px;
+  width: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#dash {
+  display: inline-block;
+  border-radius: 40px;
+  background-color: #3d769c;
+  border: none;
+  color: var(--txt-light);
+  text-align: center;
+  font-size: 17px;
+  padding: 16px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+#dash span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#dash span:after {
+  content: "↦";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.5s;
+}
+
+#dash:hover span {
+  padding-right: 15px;
+}
+
+#dash:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.Cover,
+.Cover img {
+  height: 700px;
+  width: 100%;
+}
+.Cover img {
+  object-fit: cover;
+}
