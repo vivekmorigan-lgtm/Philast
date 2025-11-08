@@ -3,7 +3,7 @@ import React from "react";
 const Logo = (props) => (
 	<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 		width="100%" viewBox="0 0 496 496" enableBackground="new 0 0 496 496" xmlSpace="preserve">
-		<path fill="#3a3a3aff" opacity="1.000000" stroke="none"
+		<path fill="var(--acent-land)" opacity="1.000000" stroke="none"
 			d="
 M272.108887,403.259613 
 	C207.692093,430.398499 147.954849,422.903625 93.731766,379.376862 
