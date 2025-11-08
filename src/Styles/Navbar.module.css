@@ -1,14 +1,19 @@
+
 :root {
-  --bg: #0d1117;           /* Deep navy background */
-  --accent: #3b82f6;       /* Electric blue accent */
-  --accent-dark: #1e40af;  /* Deep indigo for hover */
-  --text: #f8f9fa;         /* Light text */
-  --muted: #9ca3af;        /* Muted gray */
-  --active-link: #3b82f6;  /* Same as accent */
-  --hover-link: #60a5fa;   /* Lighter blue on hover */
+  --bg-nav: #0d1117;
+  --accent: #3b82f6;
+  --accent-dark: #1e40af;
+  --text: #f8f9fa;
+  --muted: #9ca3af;
+  --active-link: #3b82f6;
+  --hover-link: #60a5fa;
+}
+body{
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .navbar {
-  background: var(--bg);
+  background: var(--bg-nav);
 }
 
 .logo {
@@ -27,9 +32,12 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  gap: 70rem;
 }
-
+.contLink{
+ position: absolute;
+  right: 20px;
+  display: flex;
+}
 .link {
   color: var(--active-link);
   text-decoration: none;

@@ -25,7 +25,8 @@ export default function Navbar() {
           <span className="navbar-toggler-icon" />
         </button>
 
-        <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+        <div className={style.contLink}>
+          <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
           <ul className="navbar-nav ms-auto align-items-center gap-3">
             <li className="nav-item">
               <NavLink
@@ -41,7 +42,7 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/Dashborad"
+                to="/dashboard"
                 className={({ isActive }) =>
                   isActive ? `${style.link} ${style.active}` : style.link
                 }
@@ -64,6 +65,7 @@ export default function Navbar() {
 
             </li>
           </ul>
+        </div>
         </div>
       </div>
     </nav>

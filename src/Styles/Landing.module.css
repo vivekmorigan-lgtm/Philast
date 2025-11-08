@@ -1,0 +1,22 @@
+:root {
+  --bg-land: #000208;
+  --acent-land: #0c6bb8;
+  --text-land: #ddd;
+}
+.bg{
+    background: var(--bg-land);
+}
+.head{
+    color: var(--text-land);
+}
+.para{
+    font-family: 'Courier New', Courier, monospace;
+}
+.btn1{
+    background-color: var(--acent-land);
+    color: var(--text-land);
+}
+.btn1:hover{
+    background: transparent;
+    border: 0.5px solid var(--acent-land);
+}

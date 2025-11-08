@@ -2,25 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Mascot from "./Mascot";
-
-const BG = "#0b1020";
-const ALT_BG = "#071018";
-const ACCENT = "#2b6f4b";
-const ACCENT_DARK = "#184d33";
-const LIGHT = "#f6f7eb";
+import landstyle from "../Styles/Landing.module.css";
 
 export default function Landing() {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        color: LIGHT,
-        background: `radial-gradient(ellipse at 20% 10%, rgba(255,255,200,0.02), transparent), linear-gradient(180deg, ${BG}, ${ALT_BG})`,
-      }}
-    >
+    <div className={landstyle.bg}>
       <section className="container py-5">
         <div className="row align-items-center">
-          <div className="col-lg-6 text-center text-lg-start">
+          <div className={`${landstyle.head} col-lg-6 text-center text-lg-start`}>
             <motion.h1
               className="display-4 fw-bold"
               initial={{ opacity: 0, x: -30 }}
@@ -30,7 +19,7 @@ export default function Landing() {
               Learn by building. Level up daily.
             </motion.h1>
             <motion.p
-              className="lead text-success"
+              className={`${landstyle.para}lead text-primary`}
               initial={{ opacity: 0.8 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -45,8 +34,7 @@ export default function Landing() {
               >
                 <Link
                   to="/dashboard"
-                  className="btn btn-lg"
-                  style={{ background: ACCENT, color: LIGHT }}
+                  className={`${landstyle.btn1} btn btn-lg`}
                 >
                   Start Challenges
                 </Link>
@@ -74,7 +62,7 @@ export default function Landing() {
               <div
                 style={{
                   background:
-                    "linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06))",
+                    "linear-gradient(180deg, rgba(0, 45, 63, 0.25), rgba(165, 165, 165, 0.21))",
                   padding: 20,
                   borderRadius: 18,
                 }}
