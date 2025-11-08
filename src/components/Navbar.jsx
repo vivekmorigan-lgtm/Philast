@@ -1,28 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
-import style from "../Styles/App.module.css";
+import style from "../Styles/Navbar.module.css";
 
-const ACCENT_DARK = "#2c503cff";
-const ACCENT = "#2ab46fff";
-
-export default function Navbar({ toggleTheme, darkMode }) {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav
-      className="navbar navbar-expand-lg navbar-dark"
-      style={{
-        background: `linear-gradient(90deg, ${ACCENT_DARK}, ${ACCENT})`,
-        backdropFilter: "blur(6px)",
-      }}
-    >
+    <nav className={`${style.navbar} navbar navbar-expand-lg`}>
       <div className={style.container}>
         <div className={style.logo}>
           <Logo />
-          <Link className="navbar-brand fw-bold fs-3" to="/">
+          <h1 className="fw-bold fs-3 text-light">
             Philast
-          </Link>
+          </h1>
         </div>
 
         <button
@@ -37,31 +28,40 @@ export default function Navbar({ toggleTheme, darkMode }) {
         <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
           <ul className="navbar-nav ms-auto align-items-center gap-3">
             <li className="nav-item">
-              <Link
-                className="nav-link fs-6"
+              <NavLink
                 to="/"
+                className={({ isActive }) =>
+                  isActive ? `${style.link} ${style.active}` : style.link
+                }
                 onClick={() => setOpen(false)}
               >
                 Home
-              </Link>
+              </NavLink>
+
             </li>
             <li className="nav-item">
-              <Link
-                className="nav-link fs-6"
-                to="/dashboard"
+              <NavLink
+                to="/Dashborad"
+                className={({ isActive }) =>
+                  isActive ? `${style.link} ${style.active}` : style.link
+                }
                 onClick={() => setOpen(false)}
               >
                 Dashboard
-              </Link>
+              </NavLink>
+
             </li>
             <li className="nav-item">
-              <Link
-                className="nav-link fs-6"
-                to="/contact"
+              <NavLink
+                to="/Contact"
+                className={({ isActive }) =>
+                  isActive ? `${style.link} ${style.active}` : style.link
+                }
                 onClick={() => setOpen(false)}
               >
                 Contact
-              </Link>
+              </NavLink>
+
             </li>
           </ul>
         </div>

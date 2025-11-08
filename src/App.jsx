@@ -10,12 +10,10 @@ import Dashboard from "./components/Dashboard";
 import Contact from "./components/Contact";
 
 export default function App() {
-  const [darkMode] = useState(true);
-  useInitialSettings(darkMode);
 
   return (
     <Router>
-      <Navbar darkMode={darkMode} />
+      <Navbar />
       <PageTransition>
         <Routes>
           <Route path="/" element={<Landing />} />
