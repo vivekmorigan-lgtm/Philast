@@ -76,11 +76,11 @@ const Footer = () => {
           <defs>
             <radialGradient id="orbGradient1">
               <stop offset="10%" stopColor="#667eea" stopOpacity="0.8" />
-              <stop offset="90%" stopColor="#667eea" stopOpacity="0.3" />
+              <stop offset="90%" stopColor="#667eea" stopOpacity="0.8" />
             </radialGradient>
             <radialGradient id="orbGradient2">
               <stop offset="0%" stopColor="#f093fb" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#f093fb" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#f093fb" stopOpacity="0.8" />
             </radialGradient>
           </defs>
           <circle className={styles.orb1} cx="10%" cy="30%" r="100" fill="url(#orbGradient1)" />

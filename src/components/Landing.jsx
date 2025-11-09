@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Mascot from "./Mascot";
 import landstyle from "../Styles/Landing.module.css";
+import About from "./About";
+import { style } from "framer-motion/client";
 
 export default function Landing() {
   return (
@@ -43,13 +45,12 @@ export default function Landing() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <a
-                  className="btn btn-outline-light btn-lg"
-                  href="#how"
-                  style={{ borderColor: "rgba(255,255,255,0.12)" }}
+                <Link
+                to="/contact"
+                  className={`${landstyle.btn2} btn btn-outline-light btn-lg`}
                 >
-                  How it works
-                </a>
+                  Contact
+                </Link>
               </motion.div>
             </div>
           </div>
@@ -77,6 +78,7 @@ export default function Landing() {
             </motion.div>
           </div>
         </div>
+        <About></About>
       </section>
     </div>
   );

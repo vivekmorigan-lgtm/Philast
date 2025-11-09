@@ -20,3 +20,6 @@
     background: transparent;
     border: 0.5px solid var(--acent-land);
 }
+.btn2{
+    border-color: rgba(255,255,255,0.12);
+}

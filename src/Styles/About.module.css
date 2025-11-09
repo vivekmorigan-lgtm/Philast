@@ -1,0 +1,96 @@
+:root{
+    --light-desc: #eee;
+}
+
+.aboutSection {
+    margin-top: 50px;
+  color: var(--light-desc);
+}
+
+.heading {
+  color: var(--light-desc);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+}
+
+.cardTitle {
+  color: var(--light-desc);
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.cardText {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.5rem;
+}
+
+.who {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.subHeading {
+  color: var(--light-desc);
+  font-weight: 700;
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.subscribe {
+  background: linear-gradient(90deg, rgba(31, 55, 78, 0.2),transparent, rgba(31, 55, 78, 0.2));
+  border-radius: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+}
+
+.input {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #ddd;
+  width: 220px;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.btn {
+  background-color: var(--accent);
+  color: #fff;
+  border-radius: 12px;
+  padding: 0.7rem 1.6rem;
+  border: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--accent-dark);
+}

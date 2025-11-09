@@ -7,9 +7,9 @@ import ChallengeModal from "./ChallengeModal";
 import { FaCheck, FaCheckCircle } from "react-icons/fa";
 
 const BG = "#030805ff";
-const ACCENT = "#3ed07a";
-const ACCENT_2 = "#31b86a";
-const ACCENT_DARK = "#09321c";
+const ACCENT = "#3ed0b8ff";
+const ACCENT_2 = "#31b8b6ff";
+const ACCENT_DARK = "#092532ff";
 const LIGHT = "#effaf1";
 const MUTED = "rgba(239,250,241,0.9)";
 
@@ -93,7 +93,7 @@ export default function Dashboard() {
       <div
         style={{
           width: 300,
-          background: `linear-gradient(180deg, ${ACCENT_DARK}, rgba(9,50,28,0.6))`,
+          background: `linear-gradient(180deg, ${ACCENT_DARK}, rgba(8, 55, 77, 0.6))`,
           padding: 18,
           borderRadius: 14,
           height: "52vh",
@@ -122,7 +122,7 @@ export default function Dashboard() {
               background: `linear-gradient(90deg, ${ACCENT}, ${ACCENT_2})`,
               height: "100%",
               borderRadius: 8,
-              boxShadow: "0 6px 18px rgba(49,184,106,0.12)",
+              boxShadow: "0 6px 18px rgba(49, 164, 184, 0.12)",
             }}
           />
         </div>
@@ -164,13 +164,13 @@ export default function Dashboard() {
                   className="card p-3 border-0 h-100"
                   style={{
                     background: isDone
-                      ? `linear-gradient(160deg, rgba(49,184,106,0.14), rgba(62,208,122,0.12))`
-                      : `linear-gradient(160deg, rgba(14,36,24,0.9), rgba(7,18,12,0.9))`,
+                      ? `linear-gradient(160deg, rgba(0, 249, 253, 0.24), rgba(0, 208, 255, 0.24))`
+                      : `linear-gradient(160deg, rgba(0, 32, 43, 0.9), rgba(0, 28, 52, 0.9))`,
                     color: LIGHT,
                     borderRadius: 16,
                     border: "1px solid rgba(62,208,122,0.06)",
                     boxShadow: isDone
-                      ? "0 10px 30px rgba(49,184,106,0.06)"
+                      ? "5px 5px 0 rgba(49, 155, 184, 0.25)"
                       : "0 6px 18px rgba(0,0,0,0.35)",
                     cursor: "pointer",
                     transition: "transform 160ms ease, box-shadow 160ms ease",
@@ -192,7 +192,7 @@ export default function Dashboard() {
                         <span
                           className="badge"
                           style={{
-                            background: "rgba(0, 129, 39, 0.7)",
+                            background: "rgba(0, 75, 129, 0.7)",
                             color: LIGHT,
                             textTransform: "uppercase",
                             letterSpacing: 0.5,
