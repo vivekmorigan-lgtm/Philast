@@ -1,0 +1,48 @@
+.cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-trail {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    var(--accent, #3ed07a) 0%,
+    transparent 70%
+  );
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity, scale;
+  transition: all 0.2s ease;
+  animation: glow 0.8s infinite alternate;
+}
+
+/* Pointer-style when hovering links or buttons */
+.cursor-pointer {
+  width: 0;
+  height: 0;
+  border-radius: 0;
+  background: none;
+  filter: none;
+  opacity: 1;
+  mix-blend-mode: normal;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 16px solid var(--accent, #3ed07a);
+  transform: translate(-50%, -50%) rotate(15deg);
+  transition: all 0.2s ease;
+}
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 4px var(--accent, #3ed07a));
+  }
+  to {
+    filter: drop-shadow(0 0 10px var(--accent, #3ed07a));
+  }
+}

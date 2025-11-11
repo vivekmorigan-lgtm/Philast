@@ -2,9 +2,29 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  cursor: none !important;
+}
+
+button{
+  cursor: none;
 }
 
 body {
   background-color: #0b1020;
   overflow-x: hidden;
+}
+/* Default hide cursor */
+html, body {
+  cursor: none;
+}
+
+/* Fallback if JS fails (custom cursor doesn't mount) */
+.no-custom-cursor body {
+  cursor: auto !important;
+}
+
+/* For links/buttons, show pointer style fallback */
+.no-custom-cursor a,
+.no-custom-cursor button {
+  cursor: pointer !important;
 }

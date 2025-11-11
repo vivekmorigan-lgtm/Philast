@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import { motion, rgba } from "framer-motion";
 import Confetti from "./Confetti";
-import data from "../data/oct";
+import data from "../../data/oct";
 import ChallengeModal from "./ChallengeModal";
 import { FaCheck, FaCheckCircle } from "react-icons/fa";
 

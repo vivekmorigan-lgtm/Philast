@@ -208,10 +208,11 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const BG = "#0b1020";
-const ACCENT = "#2b6f4b";
-const ACCENT_DARK = "#184d33";
-const LIGHT = "#f6f7eb";
+const BG = "#030805ff";
+const ACCENT = "#00263cff";
+const ACCENT_DARK = "#004362ff";
+const LIGHT = "#effaf1";
+
 
 export default function Contact() {
   const [sending, setSending] = useState(false);
