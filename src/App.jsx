@@ -15,10 +15,9 @@ const Contact = lazy(() => import("./components/Contact"));
 
 export default function App() {
   const [initialLoading, setInitialLoading] = useState(true);
-
-  // 🌀 Show loader only once, when the app is first opened or refreshed
+  
   useEffect(() => {
-    const timer = setTimeout(() => setInitialLoading(false), 2000);
+    const timer = setTimeout(() => setInitialLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
 
