@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route , Navigate} from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Styles/App.css";
@@ -11,11 +11,9 @@ import PageTransition from "./components/PageTransition";
 
 const Landing = lazy(() => import("./components/Landing"));
 const Dashboard = lazy(() => import("./components/Dashboard"));
-const Contact = lazy(() => import("./components/Contact"));
-
 export default function App() {
   const [initialLoading, setInitialLoading] = useState(true);
-  
+
   useEffect(() => {
     const timer = setTimeout(() => setInitialLoading(false), 2500);
     return () => clearTimeout(timer);
@@ -39,7 +37,6 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Landing />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/contact" element={<Contact />} />
             </Routes>
           </AnimatePresence>
         </Suspense>

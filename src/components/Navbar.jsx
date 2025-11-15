@@ -27,45 +27,42 @@ export default function Navbar() {
 
         <div className={style.contLink}>
           <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
-          <ul className="navbar-nav ms-auto align-items-center gap-3">
-            <li className="nav-item">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive ? `${style.link} ${style.active}` : style.link
-                }
-                onClick={() => setOpen(false)}
-              >
-                Home
-              </NavLink>
+            <ul className="navbar-nav ms-auto align-items-center gap-3">
+              <li className="nav-item">
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? `${style.link} ${style.active}` : style.link
+                  }
+                  onClick={() => setOpen(false)}
+                >
+                  Home
+                </NavLink>
 
-            </li>
-            <li className="nav-item">
-              <NavLink
-                to="/dashboard"
-                className={({ isActive }) =>
-                  isActive ? `${style.link} ${style.active}` : style.link
-                }
-                onClick={() => setOpen(false)}
-              >
-                Dashboard
-              </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/dashboard"
+                  className={({ isActive }) =>
+                    isActive ? `${style.link} ${style.active}` : style.link
+                  }
+                  onClick={() => setOpen(false)}
+                >
+                  Dashboard
+                </NavLink>
 
-            </li>
-            <li className="nav-item">
-              <NavLink
-                to="/Contact"
-                className={({ isActive }) =>
-                  isActive ? `${style.link} ${style.active}` : style.link
-                }
-                onClick={() => setOpen(false)}
-              >
-                Contact
-              </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="https://www.google.com"
+                  style={{textDecoration : 'none'}}
+                  >
+                  Contact
+                </NavLink>
 
-            </li>
-          </ul>
-        </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
