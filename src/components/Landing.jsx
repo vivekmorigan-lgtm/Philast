@@ -46,7 +46,7 @@ export default function Landing() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Link
-                to="https://www.google.com"
+                to="https://contact015.pages.dev/"
                   className={`${landstyle.btn2} btn btn-outline-light btn-lg`}
                 >
                   Contact
@@ -83,3 +83,4 @@ export default function Landing() {
     </div>
   );
 }
+
